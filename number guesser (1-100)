@@ -1,0 +1,31 @@
+import random
+
+def getvalidguess(prompttext):
+    while True:
+        usernumber = input(prompttext)
+        if usernumber.isdigit():
+             if 1 <= int(usernumber) <= 100:
+                  return int(usernumber)
+             else:
+                print('usernumber must be a number between 1 and 100')
+        else:
+            print('usernumber must be a digit')
+
+secretnumber = random.randint(1, 100)
+usernumber = getvalidguess("Guess a number between 1 and 100: ")
+pastguesses = []
+
+while usernumber != secretnumber:
+    if usernumber > secretnumber:
+        print('hot! hot! high!')
+     
+    elif usernumber < secretnumber:
+        print('cold! cold! low!')
+    pastguesses.append(usernumber)
+    usernumber = getvalidguess('Guess again: ')
+    print()
+    print('Your guesses so far',pastguesses)
+
+tries = len(pastguesses)
+print('You got it! The number was', secretnumber)
+print(f'It took you {tries} tries!')
