@@ -1,0 +1,24 @@
+print('Ceasar Cipher :3')
+print('Input plaintext')
+plaintext = input()
+print('Input shift value')
+shiftvalue = input()
+while not shiftvalue.isdigit():
+    print('shift value must be an integer')
+    shiftvalue = input()
+    
+shiftvalue = int(shiftvalue)
+plaintext = plaintext.lower()
+
+alphabet = 'abcdefghijklmnopqrstuvwxyz'
+
+ciphertext = ''
+
+for letter in plaintext:
+    position = alphabet.index(letter)
+    shiftedposition = (position + shiftvalue) % 26
+    ciphertext = ciphertext + alphabet[shiftedposition]
+    
+ciphertext = ciphertext.upper()
+
+print(f'heres your cipher text is {ciphertext}')
