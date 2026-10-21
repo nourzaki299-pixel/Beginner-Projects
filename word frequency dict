@@ -1,0 +1,19 @@
+print('Insert text: ')
+plaintext = input().lower().split()
+
+cleanedwords = []
+for word in plaintext:
+    cleanword=''
+    for letter in word:
+        if letter.isalpha():
+            cleanword += letter
+    cleanedwords.append(cleanword)
+
+wordfrequency = {}
+for word in cleanedwords:
+    if word not in wordfrequency:
+        wordfrequency[word] = 1
+    else:
+        wordfrequency[word] += 1
+
+print(wordfrequency)
