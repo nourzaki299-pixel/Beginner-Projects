@@ -1,0 +1,33 @@
+while True:
+
+    print('First number: ')
+    _1st = int(input())
+    print('Second number: ')
+    _2nd = int(input())
+    
+    print('Choose operation: plus, minus, multiply, divide')
+    operation = input().lower()
+
+    operations = ['plus', 'minus', 'multiply' , 'divide']
+
+    while operation not in operations:
+        operation = input('Insert operation name properly:').lower()
+
+    if operation == 'plus':
+        result = _1st + _2nd
+    elif operation == 'minus':
+        result = _1st - _2nd
+    elif operation == 'multiply':
+        result = _1st * _2nd 
+    elif operation == 'divide':
+        if _2nd == 0:
+            result = 'undefined'
+        else:
+            result = _1st / _2nd
+
+    print(f'Your awesome result: {result}')
+    answer = input(':) Go again? type y or n: ').lower()
+    if answer == 'n':
+        break
+
+print('See you soon! Keep geeking')
