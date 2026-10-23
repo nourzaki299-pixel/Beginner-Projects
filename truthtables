@@ -1,0 +1,14 @@
+p_label = input("What's your statement for P? ")
+q_label = input("What's your statement for Q? ")
+
+truth_values = [(True,True),(True,False),(False,True),(False,False)]
+
+print(f"{p_label:^15}{q_label:^15}{'AND result':^15}{'OR result':^15}{'DeMorgan AND':^15}{'DeMorgan OR':^15}")
+
+for pair in truth_values:
+    p_value, q_value = pair
+    andresult = p_value and q_value
+    orresult = p_value or q_value
+    demorganand = not(p_value and q_value)
+    demorganor = not p_value or not q_value
+    print(f"{p_value:^15}{q_value:^15}{andresult:^15}{orresult:^15}{demorganand:^15}{demorganor:^15}")
