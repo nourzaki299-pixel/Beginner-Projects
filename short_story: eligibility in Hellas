@@ -1,0 +1,63 @@
+import time
+
+def say (text,pause):
+    for letter in text:
+        print(letter,end='',flush=True)
+        time.sleep(0.03)
+    print()
+    time.sleep(pause)
+
+def thinking(thinking_text='', seconds=3):
+    cycles = 3
+    pause = seconds / (cycles * 3)
+    for i in range(cycles):
+        print('\r' + thinking_text, end='', flush=True)
+        for i in range(3):
+            time.sleep(pause)
+            print('.', end='', flush=True)
+        time.sleep(pause)
+        print('\r' + ' ' * (len(thinking_text) + 3) + '\r', end='', flush=True)
+
+while True:
+    say('Athens, 380 BCE. Word has spread that Plato is testing the Athenian citizens against his criteria for the philosopher-king.\nYou, a curious Athenian, seem to have the day off...',3)
+    say('1.Seek out Plato.\n2.Ignore the rumors and go about your day.',2)
+    say('Choose: 1 or 2\n',2)
+    first_choice = int(input())
+    
+    if first_choice ==1:
+        say('SCENE I : The Philosophers in Athens',3)
+        say('You decide to go to Agora, the central marketplace of Athens.\nThe philosophers are holding their usual public debates...',5)
+        say('and the usual listening bystander is, as ever, suspicious.\nThe execution of Socrates, famously known as the whiny youth corruptor, has cast doubt on all philosophers.',4)
+        say("You ask a bystander who seems wise: 'Where does one find Plato?'",4)
+        say("He looks at you rather pitifully and laughs: 'That elitist crank? The one who mocks Athens demos?!'",4)
+        say('...',3)
+        say('You nod slowly...unsure of whether he will belittle your request.',4)
+        for n in range(3,6):
+            say('.'*n,n)
+        say("'If you're asking where all this nonsense emanates from...it is from his damned academy'\nThe bystander who seems wise turns around and leaves.",5) 
+    else:
+        say('Good, you saved yourself a serious headache.',5)
+        break
+    say('SCENE II : Real Olives',3)
+    say('The academy stands before you. Some students are sitting on its stairs, others entering and leaving.',4)
+    say('The building is in an open field, away from the city.',4) 
+    say("Inscribed above the gates is written 'Let no one ignorant of geometry enter'.",4)
+    say("...",2)
+    say("'It reads 'Keep Out', it is a mockery for you and me'.",4)
+    say('You turn toward the speaker, a woman picking wild olives, equally displeased as the man who seems wise.',4)
+    say("'Only the rich could afford to develop a mind free from life's demands.\nThey call it philosophy, I call it getting drunk enough to see absurd shapes.'",5)
+    say("1.'Then who is this philosopher-king?'",2)
+    say("2.'You seem to know a thing or two about the activities of this place...'",2)
+    
+    second_choice = int(input())
+    if second_choice ==1:
+        say("'A drunk-king, of course.'",4)
+    else:
+        say("'The woman picking olives laughs,'I am unfortunate indeed, being the wife of one of the students'",3)
+        say("It appears that her economic situation is better than she credits herself.\n'Then, why are you here, picking olives?, you ask'",4)
+        say("'Because it is material...'\n'and I have had enough evenings about this thing called 'The Forms'\nThe woman picking olives turns away",4)
+        
+    for n in range(3,6):
+            say('.',n)
+    say('SCENE III: Mean what you say')
+    
