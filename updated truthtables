@@ -1,0 +1,41 @@
+p_label = input("What's your statement for P? ")
+q_label = input("What's your statement for Q? ")
+
+truth_values = [(True,True),(True,False),(False,True),(False,False)]
+
+def check_operation(operations):
+    while True:
+        choice = input("Write your desired operations from the following menu:\n" + ', '.join(operations.keys()) + "\n")
+        split_choice = choice.upper().split(',')
+        clean_choice = [item.strip() for item in split_choice]
+        all_valid = True
+        for item in clean_choice:
+            if item not in operations:
+                print(f'{item} is not a valid operation')
+                all_valid = False
+        if all_valid:
+            return clean_choice
+
+operations = {
+    "AND": lambda p, q: p and q,
+    "OR": lambda p,q : p or q,
+    "NAND": lambda p,q : not(p and q),
+    "NOR": lambda p,q: not (p or q),
+    "XOR": lambda p,q: p != q,}
+
+user_operations = check_operation(operations)
+
+
+print(f"{p_label:^15}{q_label:^15}",end='')
+
+for name in user_operations:
+    print(f"{name:^15}", end="")
+print()
+
+for pair in truth_values:
+    p_value, q_value = pair
+    print(f"{p_value:^15}{q_value:^15}", end="")
+    for name in user_operations:
+        result = operations[name](p_value, q_value)
+        print(f"{result:^15}", end="")
+    print()
