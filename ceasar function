@@ -1,0 +1,21 @@
+while True:
+    def ceasar (shift_value, text):
+        alphabet = 'abcdefghijklmnopqrstuvwxyz'
+        result = '  '
+        for letter in text:
+            was_upper = letter.isupper()
+            position = alphabet.index(letter.lower())
+            shifted_position = (position + shift_value) % 26
+            if not was_upper:
+                result = result + alphabet[shifted_position].upper()
+            else:
+                    result = result + alphabet[shifted_position]
+        return result
+
+    text = input('Enter text:')
+    shift_value = int(input('Shiftvalue:'))
+    print(ceasar(shift_value,text))
+    
+    answer = input(':) Go again? type y or n: ').lower()
+    if answer == 'n':
+        break
